@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  game: 
+  leader: 
+  round_num: 1
+  mission_passed: false
+
+two:
+  game: 
+  leader: 
+  round_num: 1
+  mission_passed: false
