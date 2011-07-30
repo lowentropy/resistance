@@ -2,6 +2,16 @@ class Game < ActiveRecord::Base
   has_many :rounds
   has_many :players
   
+  accepts_nested_attributes_for :players
+  
+  def self.most_recent
+    order(:created_at.desc).first
+  end
+  
+  def player_names
+    players.map &:name
+  end
+  
   def over?
     spies_won? or agents_won? or teams_foiled?
   end

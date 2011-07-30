@@ -1,0 +1,22 @@
+<% form_for @game, :id => "new_game" do |f| -%>
+  <h1>Players</h1>
+
+  <ul id="players">
+  <% @players.each do |name| -%>
+    <li>
+      <%= text_field_tag "game[players_attributes][][name]", name %>
+      <a class="remove" href="#">remove</a>
+    </li>
+  <% end -%>
+    <li>
+      <%= text_field_tag "game[players_attributes][][name]" %>
+      <a class="remove" href="#">remove</a>
+    </li>
+  </ul>
+  
+  <p>
+    <a id="new_player" href="#">Add a player</a>
+  </p>
+  
+  <%= f.submit "Start!" %>
+<% end -%>
