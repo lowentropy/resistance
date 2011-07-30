@@ -21,4 +21,8 @@ class Game < ActiveRecord::Base
   def winner
     agents_won? ? :agent : :spy
   end
+  
+  def num_players
+    num_spies + num_agents
+  end
 end
