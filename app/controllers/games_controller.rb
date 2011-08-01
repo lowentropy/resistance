@@ -14,7 +14,6 @@ class GamesController < ApplicationController
   end
   
   def create
-#    raise params.inspect
     @game = Game.new params[:game]
     @game.players.reject! {|p| p.name.blank?}
     if @game.save
