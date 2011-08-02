@@ -1,7 +1,4 @@
-<h1>Players</h1>
-
-<ul id="players">
-  <% @game.players.each do |player| -%>
-    <li><%= player.name %></li>
-  <% end -%>
-</ul>
+<%= render 'players' %>
+<div id="leader" style="display: none">
+  <p>LEADER</p>
+</div>

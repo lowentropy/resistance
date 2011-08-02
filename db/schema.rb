@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730201221) do
+ActiveRecord::Schema.define(:version => 20110801225345) do
 
   create_table "games", :force => true do |t|
     t.datetime "created_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20110730201221) do
   create_table "players", :force => true do |t|
     t.string   "name"
     t.integer  "game_id"
-    t.float    "spy_odds"
+    t.float    "spy_odds",   :default => 0.5
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"

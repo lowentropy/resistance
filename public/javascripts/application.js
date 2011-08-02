@@ -29,4 +29,37 @@ $(function() {
   
   // initially, focus the last text input
   $("#new_game input:text:last").focus();
+  
+  // hover over player names
+  $("ul#players.fancy li").hover(function() {
+    $(this).addClass("hover");
+  }, function() {
+    $(this).removeClass("hover");
+  }).click(function() {
+    $(this).toggleClass("selected");
+  }).dblclick(function() {
+    var leader = $("#leader");
+    leader.css("display", "block");
+    leader.remove();
+    $(this).append(leader);
+    $(".leader").removeClass("leader");
+    $(this).addClass("leader");
+    return false;
+  });
+  
+  var max_color_strength = 150;
+  
+  $("ul#players.fancy .player_name.spy").each(function() {
+    var strength = parseFloat($(this).attr("data-strength"));
+    var off = 255 - max_color_strength * strength;
+    var rgb = "rgb(255," + off + "," + off + ")";
+    $(this).css("background", rgb);
+  });
+
+  $("ul#players.fancy .player_name.agent").each(function() {
+    var strength = parseFloat($(this).attr("data-strength"));
+    var off = 255 - max_color_strength * strength;
+    var rgb = "rgb(" + off + "," + off + ", 255)";
+    $(this).css("background", rgb);
+  });
 });

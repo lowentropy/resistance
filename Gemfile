@@ -7,6 +7,10 @@ gem 'jquery-rails'
 gem 'meta_where'
 gem 'acts_as_list'
 
+group :development do
+  gem 'rails-erd'
+end
+
 group :cucumber do
   gem 'cucumber-rails'
   gem 'capybara', '~> 1.0.0'

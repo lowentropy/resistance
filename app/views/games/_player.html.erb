@@ -1,0 +1,14 @@
+<div class="container">
+  <p>
+  <% if player.neutral? -%>
+    <span class="neutral">neutral</span>
+  <% else -%>
+    <%= (player.strength * 100).to_i %>%
+    <span class="<%= player.side %>"><%= player.side %></span>
+  <% end -%>
+  </p>
+
+  <p class="player_name <%= player.side %>" data-strength="<%= player.strength %>">
+    <%= player.name %>
+  </p>
+</div>
