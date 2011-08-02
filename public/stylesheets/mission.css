@@ -1,0 +1,33 @@
+ul#mission {
+  -webkit-padding-start: 0px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+ul#mission li {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 20px;
+  font-size: 300%;
+  font-family: arial;
+  font-weight: bold;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+ul#mission p {
+  margin: 0;
+}
+
+ul#mission li.pass {
+  background: #55f;
+}
+
+ul#mission li.fail {
+  background: #f55;
+}
