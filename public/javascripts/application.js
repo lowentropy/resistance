@@ -35,8 +35,12 @@ $(function() {
     $(this).addClass("hover");
   }, function() {
     $(this).removeClass("hover");
+  
+  // toggle whether player is on the team
   }).click(function() {
     $(this).toggleClass("selected");
+  
+  // select the player as the leader
   }).dblclick(function() {
     var leader = $("#leader");
     leader.css("display", "block");
@@ -47,8 +51,19 @@ $(function() {
     return false;
   });
   
+  // find out who the leader and the team are
+  function get_settings(passed) {
+    var settings = {team: [], passed: passed};
+    $("ul#players.fancy li.selected").each(function() {
+      settings.team.push($(this).attr("data-id"));
+    })
+    settings.leader = $("ul#players.fancy li.leader").attr("data-id");
+    return settings;
+  }
+  
   var max_color_strength = 150;
   
+  // make spy backgrounds deeper red the more shady they are
   $("ul#players.fancy .player_name.spy").each(function() {
     var strength = parseFloat($(this).attr("data-strength"));
     var off = 255 - max_color_strength * strength;
@@ -56,10 +71,23 @@ $(function() {
     $(this).css("background", rgb);
   });
 
+  // make agent backgrounds deeper blue the less shady they are
   $("ul#players.fancy .player_name.agent").each(function() {
     var strength = parseFloat($(this).attr("data-strength"));
     var off = 255 - max_color_strength * strength;
     var rgb = "rgb(" + off + "," + off + ", 255)";
     $(this).css("background", rgb);
+  });
+  
+  // the mission succeeds
+  $("#mission .pass").click(function() {
+    var form = get_settings(true);
+    alert("You passed the mission: " + JSON.stringify(form));
+  });
+  
+  // the mission fails
+  $("#mission .fail").click(function() {
+    var form = get_settings(false);
+    alert("You failed the mission: " + JSON.stringify(form));
   });
 });

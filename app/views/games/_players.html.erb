@@ -1,6 +1,6 @@
 <ul id="players" class="fancy">
 <% @game.players.each do |player| -%>
-  <li>
+  <li data-id="<%= player.id %>">
     <%= render 'player', :player => player %>
   </li>
 <% end -%>
